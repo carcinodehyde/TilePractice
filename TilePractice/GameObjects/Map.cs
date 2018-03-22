@@ -19,27 +19,27 @@ namespace TilePractice.GameObjects
 
         private ContentManager Content;
 
-        public Map(String name, ContentManager content)
+        public Map(String name, ContentManager content, String tileName)
         {
             Content = content;
 
             LoadMapData(name);
-            LoadTileTextures();
+            LoadTileTextures(tileName);
         }
 
-        private void LoadTileTextures()
+        private void LoadTileTextures(String tileName)
         {
 
-            Tiles = Content.Load<Texture2D>("Graphics/Tile1");
+            Tiles = Content.Load<Texture2D>("Graphics/" + tileName);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            for (int y = 0; y < TileMap.GetLength(1); y++)
+            for (int x = 0; x < TileMap.GetLength(0); x++)
             {
 
-                for (int x = 0; x < TileMap.GetLength(0); x++)
+                for (int y = 0; y < TileMap.GetLength(1); y++)
                 {
 
                     spriteBatch.Draw(Tiles,
@@ -65,7 +65,7 @@ namespace TilePractice.GameObjects
 
             width = tileNo.Count();
 
-            TileMap = new int[height, width];
+            TileMap = new int[width, height];
 
             sr = new StreamReader(path);
 
@@ -78,7 +78,7 @@ namespace TilePractice.GameObjects
                 for (int x = 0; x < width; x++)
                 {
 
-                    TileMap[y, x] = Convert.ToInt32(tileNo[x]);
+                    TileMap[x, y] = Convert.ToInt32(tileNo[x]);
                 }
             }
 

@@ -34,7 +34,7 @@ namespace TilePractice
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            map = new Map("Map1", Content);
+            map = new Map("Map1", Content, "Tile1");
         }
 
         protected override void UnloadContent()
@@ -54,7 +54,7 @@ namespace TilePractice
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
             map.Draw(spriteBatch);
