@@ -53,7 +53,7 @@ namespace TilePractice.GameObjects
         private void LoadMapData(String name)
         {
 
-            String path = Path.Combine(Environment.CurrentDirectory + "\\MapLayouts\\" + name + ".txt");
+            String path = Path.Combine(Environment.CurrentDirectory + "\\MapLayouts\\" + name + ".csv");
 
             int width = 0;
             int height = File.ReadLines(path).Count();
